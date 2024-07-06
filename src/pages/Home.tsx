@@ -10,93 +10,113 @@ import { filterEventsByCategory, filterEventsBySearch } from '../utils';
 const events: Event[] = [
   {
     id: 1,
-    title: 'Exploring the World of Web Development',
+    title: "Exploring the World of Web Development",
     date: new Date().toISOString(),
-    username: 'devGuru',
+    username: "devGuru",
     price: 10.0,
-    category: 'Software Development',
-    imageURL: 'https://via.placeholder.com/150?text=Web+Development'
+    category: "Software Development",
+    imageURL: "https://via.placeholder.com/150?text=Web+Development",
+    location: "San Francisco, CA",
+    description: "Learn the latest trends and techniques in web development, including HTML, CSS, and JavaScript."
   },
   {
     id: 2,
-    title: 'JavaScript for Beginners',
+    title: "JavaScript for Beginners",
     date: new Date().toISOString(),
-    username: 'codeMaster',
+    username: "codeMaster",
     price: 0.0,
-    category: 'Programming',
-    imageURL: 'https://via.placeholder.com/150?text=JavaScript'
+    category: "Programming",
+    imageURL: "https://via.placeholder.com/150?text=JavaScript",
+    location: "Online",
+    description: "A comprehensive introduction to JavaScript for those new to programming."
   },
   {
     id: 3,
-    title: 'Advanced CSS Techniques',
+    title: "Advanced CSS Techniques",
     date: new Date().toISOString(),
-    username: 'styleWizard',
+    username: "styleWizard",
     price: 20.0,
-    category: 'Web Design',
-    imageURL: 'https://via.placeholder.com/150?text=CSS'
+    category: "Web Design",
+    imageURL: "https://via.placeholder.com/150?text=CSS",
+    location: "New York, NY",
+    description: "Master advanced CSS techniques to create stunning web designs."
   },
   {
     id: 4,
-    title: 'React Native Bootcamp',
+    title: "React Native Bootcamp",
     date: new Date().toISOString(),
-    username: 'mobileNinja',
+    username: "mobileNinja",
     price: 0.0,
-    category: 'Mobile Development',
-    imageURL: 'https://via.placeholder.com/150?text=React+Native'
+    category: "Mobile Development",
+    imageURL: "https://via.placeholder.com/150?text=React+Native",
+    location: "Austin, TX",
+    description: "An intensive bootcamp covering everything you need to know to build mobile apps with React Native."
   },
   {
     id: 5,
-    title: 'AI and Machine Learning Symposium',
+    title: "AI and Machine Learning Symposium",
     date: new Date().toISOString(),
-    username: 'aiExpert',
+    username: "aiExpert",
     price: 50.0,
-    category: 'Artificial Intelligence',
-    imageURL: 'https://via.placeholder.com/150?text=AI+Symposium'
+    category: "Artificial Intelligence",
+    imageURL: "https://via.placeholder.com/150?text=AI+Symposium",
+    location: "Boston, MA",
+    description: "Join experts in AI and machine learning to explore the latest advancements and applications."
   },
   {
     id: 6,
-    title: 'Cybersecurity Essentials',
+    title: "Cybersecurity Essentials",
     date: new Date().toISOString(),
-    username: 'secureTech',
+    username: "secureTech",
     price: 0.0,
-    category: 'Cybersecurity',
-    imageURL: 'https://via.placeholder.com/150?text=Cybersecurity'
+    category: "Cybersecurity",
+    imageURL: "https://via.placeholder.com/150?text=Cybersecurity",
+    location: "Online",
+    description: "Learn the fundamentals of cybersecurity to protect your digital assets."
   },
   {
     id: 7,
-    title: 'Data Science with Python',
+    title: "Data Science with Python",
     date: new Date().toISOString(),
-    username: 'dataGuru',
+    username: "dataGuru",
     price: 30.0,
-    category: 'Data Science',
-    imageURL: 'https://via.placeholder.com/150?text=Data+Science'
+    category: "Data Science",
+    imageURL: "https://via.placeholder.com/150?text=Data+Science",
+    location: "Chicago, IL",
+    description: "Discover how to use Python for data science, including data analysis and visualization."
   },
   {
     id: 8,
-    title: 'UX/UI Design Fundamentals',
+    title: "UX/UI Design Fundamentals",
     date: new Date().toISOString(),
-    username: 'designPro',
+    username: "designPro",
     price: 15.0,
-    category: 'Design',
-    imageURL: 'https://via.placeholder.com/150?text=UX+UI+Design'
+    category: "Design",
+    imageURL: "https://via.placeholder.com/150?text=UX+UI+Design",
+    location: "Seattle, WA",
+    description: "Learn the basics of UX/UI design to create user-friendly interfaces."
   },
   {
     id: 9,
-    title: 'Cloud Computing Expo',
+    title: "Cloud Computing Expo",
     date: new Date().toISOString(),
-    username: 'cloudArchitect',
+    username: "cloudArchitect",
     price: 0.0,
-    category: 'Cloud Computing',
-    imageURL: 'https://via.placeholder.com/150?text=Cloud+Computing'
+    category: "Cloud Computing",
+    imageURL: "https://via.placeholder.com/150?text=Cloud+Computing",
+    location: "Las Vegas, NV",
+    description: "Explore the latest trends and technologies in cloud computing."
   },
   {
     id: 10,
-    title: 'Digital Marketing Strategies',
+    title: "Digital Marketing Strategies",
     date: new Date().toISOString(),
-    username: 'marketingGuru',
+    username: "marketingGuru",
     price: 25.0,
-    category: 'Marketing',
-    imageURL: 'https://via.placeholder.com/150?text=Marketing'
+    category: "Marketing",
+    imageURL: "https://via.placeholder.com/150?text=Marketing",
+    location: "Online",
+    description: "Learn effective digital marketing strategies to boost your online presence."
   }
 ];
 

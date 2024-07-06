@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardContent,
@@ -21,6 +22,7 @@ interface EventItemProps {
 }
 
 const EventItem: FC<EventItemProps> = ({
+  id,
   title,
   date,
   username,
@@ -29,26 +31,29 @@ const EventItem: FC<EventItemProps> = ({
   imageURL
 }) => {
   return (
-    <Card className="min-w-[300px] max-w-[330px] h-full flex flex-col">
-      <CardHeader
-        className="relative h-56 rounded-t-lg"
-      >
-        <img src={imageURL} className="absolute top-0 left-0 w-full h-full object-cover" />
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="mt-4 flex gap-2 flex-wrap">
-          <Badge className="bg-green-200 text-green-700">
-            {parseInt(price.toString()) === 0 ? 'FREE' : `$${price}`}
-          </Badge>
-          <Badge>{category} </Badge>
-        </div>
-        <CardDescription>{date}</CardDescription>
-        <CardTitle>{title}</CardTitle>
-      </CardContent>
-      <CardFooter className="mt-auto">
-        <CardDescription>{username}</CardDescription>
-      </CardFooter>
-    </Card>
+    <Link to={`/events/${id}`}>
+      <Card className="min-w-[300px] max-w-[330px] h-full flex flex-col">
+        <CardHeader className="relative h-56 rounded-t-lg">
+          <img
+            src={imageURL}
+            className="absolute top-0 left-0 w-full h-full object-cover"
+          />
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="mt-4 flex gap-2 flex-wrap">
+            <Badge className="bg-green-200 text-green-700">
+              {parseInt(price.toString()) === 0 ? 'FREE' : `$${price}`}
+            </Badge>
+            <Badge>{category} </Badge>
+          </div>
+          <CardDescription>{date}</CardDescription>
+          <CardTitle>{title}</CardTitle>
+        </CardContent>
+        <CardFooter className="mt-auto">
+          <CardDescription>{username}</CardDescription>
+        </CardFooter>
+      </Card>
+    </Link>
   );
 };
 
