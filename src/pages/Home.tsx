@@ -11,7 +11,7 @@ const events: Event[] = [
   {
     id: 1,
     title: "Exploring the World of Web Development",
-    date: new Date().toISOString(),
+    date: "2024-08-01T10:00:00.000Z",
     username: "devGuru",
     price: 10.0,
     category: "Software Development",
@@ -22,7 +22,7 @@ const events: Event[] = [
   {
     id: 2,
     title: "JavaScript for Beginners",
-    date: new Date().toISOString(),
+    date: "2024-08-05T14:00:00.000Z",
     username: "codeMaster",
     price: 0.0,
     category: "Programming",
@@ -33,7 +33,7 @@ const events: Event[] = [
   {
     id: 3,
     title: "Advanced CSS Techniques",
-    date: new Date().toISOString(),
+    date: "2024-08-10T09:00:00.000Z",
     username: "styleWizard",
     price: 20.0,
     category: "Web Design",
@@ -44,7 +44,7 @@ const events: Event[] = [
   {
     id: 4,
     title: "React Native Bootcamp",
-    date: new Date().toISOString(),
+    date: "2024-08-15T12:00:00.000Z",
     username: "mobileNinja",
     price: 0.0,
     category: "Mobile Development",
@@ -55,7 +55,7 @@ const events: Event[] = [
   {
     id: 5,
     title: "AI and Machine Learning Symposium",
-    date: new Date().toISOString(),
+    date: "2024-08-20T11:00:00.000Z",
     username: "aiExpert",
     price: 50.0,
     category: "Artificial Intelligence",
@@ -66,7 +66,7 @@ const events: Event[] = [
   {
     id: 6,
     title: "Cybersecurity Essentials",
-    date: new Date().toISOString(),
+    date: "2024-08-25T16:00:00.000Z",
     username: "secureTech",
     price: 0.0,
     category: "Cybersecurity",
@@ -77,7 +77,7 @@ const events: Event[] = [
   {
     id: 7,
     title: "Data Science with Python",
-    date: new Date().toISOString(),
+    date: "2024-08-30T13:00:00.000Z",
     username: "dataGuru",
     price: 30.0,
     category: "Data Science",
@@ -88,7 +88,7 @@ const events: Event[] = [
   {
     id: 8,
     title: "UX/UI Design Fundamentals",
-    date: new Date().toISOString(),
+    date: "2024-09-05T08:00:00.000Z",
     username: "designPro",
     price: 15.0,
     category: "Design",
@@ -99,7 +99,7 @@ const events: Event[] = [
   {
     id: 9,
     title: "Cloud Computing Expo",
-    date: new Date().toISOString(),
+    date: "2024-09-10T17:00:00.000Z",
     username: "cloudArchitect",
     price: 0.0,
     category: "Cloud Computing",
@@ -110,7 +110,7 @@ const events: Event[] = [
   {
     id: 10,
     title: "Digital Marketing Strategies",
-    date: new Date().toISOString(),
+    date: "2024-09-15T15:00:00.000Z",
     username: "marketingGuru",
     price: 25.0,
     category: "Marketing",
