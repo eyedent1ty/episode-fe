@@ -34,7 +34,7 @@ const EventItem: FC<EventItemProps> = ({
 }) => {
   return (
     <Link to={`/events/${id}`}>
-      <Card className="min-w-[300px] max-w-[330px] h-full flex flex-col">
+      <Card className="min-w-[300px] w-[330px] max-w-[330px] h-full flex flex-col">
         <CardHeader className="relative h-56 rounded-t-lg">
           <img
             src={imageURL}
