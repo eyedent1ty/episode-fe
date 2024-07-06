@@ -38,7 +38,7 @@ const EventItem: FC<EventItemProps> = ({
       <CardContent className="space-y-4">
         <div className="mt-4 flex gap-2 flex-wrap">
           <Badge className="bg-green-200 text-green-700">
-            {parseInt(price.toString()) === 0 ? 'Free' : `$${price}`}
+            {parseInt(price.toString()) === 0 ? 'FREE' : `$${price}`}
           </Badge>
           <Badge>{category} </Badge>
         </div>
