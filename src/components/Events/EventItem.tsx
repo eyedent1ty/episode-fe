@@ -1,5 +1,7 @@
 import type { FC } from 'react';
 
+import { motion } from 'framer-motion';
+
 import { Link } from 'react-router-dom';
 import {
   Card,
@@ -33,29 +35,31 @@ const EventItem: FC<EventItemProps> = ({
   imageURL
 }) => {
   return (
-    <Link to={`/events/${id}`}>
-      <Card className="min-w-[300px] w-[330px] max-w-[330px] h-full flex flex-col">
-        <CardHeader className="relative h-56 rounded-t-lg">
-          <img
-            src={imageURL}
-            className="absolute top-0 left-0 w-full h-full object-cover"
-          />
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="mt-4 flex gap-2 flex-wrap">
-            <Badge className="bg-green-200 text-green-700">
-              {parseInt(price.toString()) === 0 ? 'FREE' : `$${price}`}
-            </Badge>
-            <Badge>{category} </Badge>
-          </div>
-          <CardDescription>{formatDateTime(dateTime)}</CardDescription>
-          <CardTitle>{title}</CardTitle>
-        </CardContent>
-        <CardFooter className="mt-auto">
-          <CardDescription>{username}</CardDescription>
-        </CardFooter>
-      </Card>
-    </Link>
+    <motion.div whileHover={{ scale: 1.2 }}>
+      <Link to={`/events/${id}`}>
+        <Card className="min-w-[300px] w-[330px] max-w-[330px] h-[456px] flex flex-col">
+          <CardHeader className="relative h-56 rounded-t-lg bg-cover bg-center">
+            <img
+              src={imageURL}
+              className="absolute top-0 left-0 w-full h-full object-cover"
+            />
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="mt-4 flex gap-2 flex-wrap">
+              <Badge className="bg-green-200 text-green-700">
+                {parseInt(price.toString()) === 0 ? 'FREE' : `$${price}`}
+              </Badge>
+              <Badge>{category} </Badge>
+            </div>
+            <CardDescription>{formatDateTime(dateTime)}</CardDescription>
+            <CardTitle>{title}</CardTitle>
+          </CardContent>
+          <CardFooter className="mt-auto">
+            <CardDescription>{username}</CardDescription>
+          </CardFooter>
+        </Card>
+      </Link>
+    </motion.div>
   );
 };
 

@@ -39,7 +39,7 @@ const Home: FC = () => {
         categories={categories}
         onSelectedCategoryChange={handleSelectedCategoryChange}
       />
-      <div className="mt-10 min-h-screen flex justify-center items-center">
+      <div className="mt-16 min-h-screen flex justify-center items-center">
         <ListOfEventItems events={filteredEvents} />
       </div>
     </div>

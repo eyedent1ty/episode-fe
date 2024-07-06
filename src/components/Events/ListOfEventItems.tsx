@@ -31,7 +31,7 @@ const ListOfEventItems: FC<ListOfEventItemsProps> = ({ events }) => {
   return (
     formattedEvents.length ? (
       <main>
-        <ul className="flex justify-center gap-5 flex-wrap">
+        <ul className="flex justify-center gap-12 flex-wrap">
           {formattedEvents[pagination - 1].map((event) => (
             <li key={event.id}>
               <EventItem {...event} />
@@ -39,7 +39,7 @@ const ListOfEventItems: FC<ListOfEventItemsProps> = ({ events }) => {
           ))}
         </ul>
         {formattedEvents.length > 1 && (
-          <footer className="my-10">
+          <footer className="my-16">
             <EventsListPagination
               onChangePaginationValue={handleChangePaginationValue}
               pagination={pagination}
