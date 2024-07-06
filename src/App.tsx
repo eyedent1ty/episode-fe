@@ -1,5 +1,14 @@
-import { Button } from "./components/ui/button"
+import { Outlet } from 'react-router';
 
 export default function App() {
-  return <Button>Hello World</Button>
+  return (
+    <>
+      <header>
+        <p>This is a header!</p>
+      </header>
+      <main>
+        <Outlet />
+      </main>
+    </>
+  );
 }
