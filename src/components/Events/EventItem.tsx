@@ -7,8 +7,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle
-} from './ui/card';
-import { Badge } from './ui/badge';
+} from '../ui/card';
+import { Badge } from '../ui/badge';
 
 interface EventItemProps {
   id: number;

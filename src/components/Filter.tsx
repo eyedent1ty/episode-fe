@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import type { FC, ChangeEvent } from 'react';
 
 import { Input } from './ui/input';
 import {
@@ -11,25 +11,40 @@ import {
   SelectItem
 } from './ui/select';
 
-const Filter: FC = () => {
+interface FilterProps {
+  search: string;
+  onSearchChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  categories: string[];
+  onSelectedCategoryChange: (newValue: string) => void;
+}
+
+const Filter: FC<FilterProps> = ({
+  search,
+  onSearchChange,
+  categories,
+  onSelectedCategoryChange
+}) => {
   return (
     <div className="flex gap-5 items-center">
-      <Input type="text" placeholder="Search" className="flex-1" />
-      <Select>
+      <Input
+        type="text"
+        placeholder="Search"
+        className="flex-1"
+        value={search}
+        onChange={onSearchChange}
+      />
+      <Select onValueChange={onSelectedCategoryChange}>
         <SelectTrigger className="flex-1">
-          <SelectValue placeholder="Category" />
+          <SelectValue placeholder="All Categories" />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
             <SelectLabel>Categories</SelectLabel>
-            <SelectItem value="Development">Development</SelectItem>
-            <SelectItem value="Business">Business</SelectItem>
-            <SelectItem value="Finance & Accounting">Finance & Accounting</SelectItem>
-            <SelectItem value="IT & Software">IT & Software</SelectItem>
-            <SelectItem value="Office Productivty">Office Productivity</SelectItem>
-            <SelectItem value="Personal Development">Personal Development</SelectItem>
-            <SelectItem value="Design">Design</SelectItem>
-            <SelectItem value="Marketing">Marketig</SelectItem>
+            {categories.map((category) => (
+              <SelectItem key={category} value={category}>
+                {category}
+              </SelectItem>
+            ))}
           </SelectGroup>
         </SelectContent>
       </Select>
