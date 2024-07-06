@@ -1,7 +1,8 @@
 interface Event {
   id: number;
   title: string;
-  date: string;
+  dateTime: string;
+  endDateTime: string;
   username: string;
   price: number;
   category: string;

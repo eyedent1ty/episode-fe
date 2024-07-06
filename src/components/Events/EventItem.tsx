@@ -16,7 +16,7 @@ import { formatDateTime } from '../../utils';
 interface EventItemProps {
   id: number;
   title: string;
-  date: string;
+  dateTime: string;
   username: string;
   price: number;
   category: string;
@@ -26,7 +26,7 @@ interface EventItemProps {
 const EventItem: FC<EventItemProps> = ({
   id,
   title,
-  date,
+  dateTime,
   username,
   price,
   category,
@@ -48,7 +48,7 @@ const EventItem: FC<EventItemProps> = ({
             </Badge>
             <Badge>{category} </Badge>
           </div>
-          <CardDescription>{formatDateTime(date)}</CardDescription>
+          <CardDescription>{formatDateTime(dateTime)}</CardDescription>
           <CardTitle>{title}</CardTitle>
         </CardContent>
         <CardFooter className="mt-auto">
