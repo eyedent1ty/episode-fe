@@ -29,24 +29,26 @@ const ListOfEventItems: FC<ListOfEventItemsProps> = ({ events }) => {
   };
 
   return (
-    <main>
-      <ul className="flex justify-center gap-5 flex-wrap">
-        {formattedEvents[pagination - 1].map((event) => (
-          <li key={event.id}>
-            <EventItem {...event} />
-          </li>
-        ))}
-      </ul>
-      {formattedEvents.length > 1 && (
-        <footer className="my-10">
-          <EventsListPagination
-            onChangePaginationValue={handleChangePaginationValue}
-            pagination={pagination}
-            formattedEvents={formattedEvents}
-          />
-        </footer>
-      )}
-    </main>
+    formattedEvents.length ? (
+      <main>
+        <ul className="flex justify-center gap-5 flex-wrap">
+          {formattedEvents[pagination - 1].map((event) => (
+            <li key={event.id}>
+              <EventItem {...event} />
+            </li>
+          ))}
+        </ul>
+        {formattedEvents.length > 1 && (
+          <footer className="my-10">
+            <EventsListPagination
+              onChangePaginationValue={handleChangePaginationValue}
+              pagination={pagination}
+              formattedEvents={formattedEvents}
+            />
+          </footer>
+        )}
+      </main>
+    ) : <p className="text-center">No Results..</p>
   );
 };
 

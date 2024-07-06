@@ -141,7 +141,7 @@ const Home: FC = () => {
         categories={categories}
         onSelectedCategoryChange={handleSelectedCategoryChange}
       />
-      <div className="mt-10">
+      <div className="mt-10 min-h-screen flex justify-center items-center">
         <ListOfEventItems events={filteredEvents} />
       </div>
     </div>
