@@ -1,5 +1,6 @@
 import Hero from '../components/Hero';
 import Filter from '../components/Filter';
+import ListOfEventItems from '../components/ListOfEventItems';
 
 export default function Home() {
   return (
@@ -10,6 +11,9 @@ export default function Home() {
         <span>Thousdand of Events</span>
       </p>
       <Filter />
+      <div className="mt-10">
+        <ListOfEventItems />
+      </div>
     </div>
   );
 }
