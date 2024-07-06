@@ -14,7 +14,7 @@ import {
 interface EventsListPaginationProps {
   pagination: number;
   onChangePaginationValue: (value: number) => void;
-  formattedEvents: Event[][]
+  formattedEvents: Event[][];
 }
 
 const EventsListPagination: FC<EventsListPaginationProps> = ({
@@ -48,7 +48,10 @@ const EventsListPagination: FC<EventsListPaginationProps> = ({
         </PaginationItem>
         {formattedEvents.map((_, i) => (
           <PaginationItem key={i}>
-            <Button variant="ghost" onClick={() => handleSelectPage(i)}>
+            <Button
+              variant={i + 1 === pagination ? 'default' : 'ghost'}
+              onClick={() => handleSelectPage(i)}
+            >
               {i + 1}
             </Button>
           </PaginationItem>
