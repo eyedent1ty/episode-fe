@@ -16,7 +16,7 @@ import google from '../assets/google.png';
 
 const SignInPage = () => {
   return (
-    <main className="h-screen w-screen flex justify-center items-center">
+    <main>
       <Card className="min-w-[300px] w-[330px] max-w-[330px] space-y-5 shadow-lg">
         <CardHeader className="flex flex-col gap-5">
           <CardTitle>episode.</CardTitle>
