@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
 import Home from '../pages/Home';
 import EventPage from '../pages/EventPage';
+import SignInPage from '../pages/SignIn';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
         element: <EventPage />
       }
     ]
+  },
+  {
+    path: '/login',
+    element: <SignInPage />
   }
 ]);
 
