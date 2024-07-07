@@ -5,11 +5,11 @@ import ListOfEventItems from '../components/Events/ListOfEventItems';
 
 import { filterEventsByCategory, filterEventsBySearch } from '../utils';
 
-// DUMMY DATA
-import events from '../dummy_data/events';
-import categories from '../dummy_data/categories';
+import { useAppSelector } from '../store/hooks';
 
 const Home: FC = () => {
+  const events = useAppSelector((state) => state.events);
+  const categories = useAppSelector((state) => state.categories);
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
 

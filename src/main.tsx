@@ -5,9 +5,12 @@ import './global.css';
 import { RouterProvider } from 'react-router-dom';
 
 import router from './router/index.tsx';
+import StoreProvider from './StoreProvider.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <StoreProvider>
+      <RouterProvider router={router} />
+    </StoreProvider>
   </React.StrictMode>
 );
