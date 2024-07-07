@@ -7,6 +7,7 @@ import EventPage from '../pages/EventPage';
 
 import AuthLayout from '../components/layouts/AuthLayout';
 import SignInPage from '../pages/SignIn';
+import SignUpPage from '../pages/SignUp';
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,8 @@ const router = createBrowserRouter([
     element: <AuthLayout />,
     children: [
       { path: '', element: <Navigate to="/auth/sign-in" replace /> },
-      { path: 'sign-in', element: <SignInPage /> }
+      { path: 'sign-in', element: <SignInPage /> },
+      { path: 'sign-up', element: <SignUpPage /> }
     ]
   }
 ]);

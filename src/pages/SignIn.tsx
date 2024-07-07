@@ -58,7 +58,7 @@ const SignInPage = () => {
         <CardFooter>
           <p className="text-sm">
             No account?{' '}
-            <Link to="/sign-up" className="text-primary font-medium underline">
+            <Link to="/auth/sign-up" className="text-primary font-medium underline">
               Sign up
             </Link>
           </p>
