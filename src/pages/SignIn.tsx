@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { Label } from '../components/ui/label';
 import { Input } from '../components/ui/input';
-import { Separator } from '@radix-ui/react-select';
+import Separator from '../components/Separator';
 import {
   Card,
   CardContent,
@@ -20,9 +20,9 @@ const SignInPage = () => {
       <Card className="min-w-[300px] w-[330px] max-w-[330px] space-y-5 shadow-lg">
         <CardHeader className="flex flex-col gap-5">
           <CardTitle>episode.</CardTitle>
-          <CardDescription>
-            <p className="font-bold">Sign in</p>
-            <p>to continue to episode</p>
+          <CardDescription className="flex flex-col">
+            <span className="font-bold">Sign in</span>
+            <span>to continue to episode</span>
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-2">
@@ -32,7 +32,11 @@ const SignInPage = () => {
               Continue with Google
             </Button>
           </div>
-          <Separator />
+
+          <Separator className="my-2">
+            or
+          </Separator>
+
           <div>
             <form className="flex flex-col gap-2">
               <div>
