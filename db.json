@@ -59,6 +59,18 @@
       "username": "eyedent1ty",
       "password": "secret123",
       "id": 10
+    },
+    {
+      "fullName": "12312323213213",
+      "username": "1312331313",
+      "password": "13123132323",
+      "id": 11
+    },
+    {
+      "fullName": "John Daniel M. Del Monte",
+      "username": "eyedent1ty",
+      "password": "daniel14",
+      "id": 12
     }
   ]
 }

@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { Label } from '../components/ui/label';
@@ -19,6 +20,7 @@ import google from '../assets/google.png';
 import { isFullnameValid, isUsernameValid, isPasswordValid } from '../utils';
 
 const SignUpPage = () => {
+  const navigate = useNavigate();
   const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -78,7 +80,9 @@ const SignUpPage = () => {
     ) {
       await httpRegisterUser();
       setLoading(false);
+      navigate('/');
     }
+    setLoading(false);
   };
 
   return (
