@@ -1,3 +1,5 @@
+import { useState, type FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { Label } from '../components/ui/label';
@@ -14,10 +16,46 @@ import {
 
 import google from '../assets/google.png';
 
+import { isUsernameValid, isPasswordValid } from '../utils';
+import Spinner from '../components/ui/Spinner';
+
 const SignInPage = () => {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState({
+    username: '',
+    password: ''
+  });
+  const [loading, setLoading] = useState(false);
+
+  function handleSignin(e: FormEvent) {
+    setLoading(true);
+    e.preventDefault();
+
+    if (!isUsernameValid(username)) {
+      setErrors((prev) => ({
+        ...prev,
+        username: 'Username must be 8 or more characters'
+      }));
+    }
+
+    if (!isPasswordValid(password)) {
+      setErrors((prev) => ({
+        ...prev,
+        password: 'Password must be 8 or more characters'
+      }));
+    }
+
+    setTimeout(() => {
+      setLoading(false);
+      navigate('/');
+    }, 3000);
+  }
+
   return (
     <main>
-      <Card className="min-w-[300px] w-[330px] max-w-[330px] space-y-5 shadow-lg">
+      <Card className="h-screen flex flex-col justify-center w-screen max-w-[500px] space-y-5 shadow-lg sm:h-auto">
         <CardHeader className="flex flex-col gap-5">
           <CardTitle>episode.</CardTitle>
           <CardDescription className="flex flex-col">
@@ -33,23 +71,39 @@ const SignInPage = () => {
             </Button>
           </div>
 
-          <Separator className="my-2">
-            or
-          </Separator>
+          <Separator className="my-2">or</Separator>
 
           <div>
-            <form className="flex flex-col gap-2">
+            <form className="flex flex-col gap-2" onSubmit={handleSignin}>
               <div>
                 <Label htmlFor="username">Username</Label>
-                <Input id="username" type="text" />
+                <Input
+                  id="username"
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+                {errors.username && (
+                  <p className="text-sm text-destructive">{errors.username}</p>
+                )}
               </div>
               <div>
                 <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" />
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  autoComplete="off"
+                />
+                {errors.password && (
+                  <p className="text-sm text-destructive">{errors.password}</p>
+                )}
               </div>
               <footer>
-                <Button type="submit" className="w-full">
-                  Continue
+                <Button type="submit" className="w-full" disabled={loading}>
+                  {loading && <Spinner />}
+                  {loading ? 'Logging in' : 'Continue'}
                 </Button>
               </footer>
             </form>
@@ -58,7 +112,10 @@ const SignInPage = () => {
         <CardFooter>
           <p className="text-sm">
             No account?{' '}
-            <Link to="/auth/sign-up" className="text-primary font-medium underline">
+            <Link
+              to="/auth/sign-up"
+              className="text-primary font-medium underline"
+            >
               Sign up
             </Link>
           </p>
