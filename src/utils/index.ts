@@ -63,4 +63,24 @@ const formatDateTime = (startDateString: string, endDateString: string) => {
   return `${formattedStartDate} / ${formattedStartTime} - ${formattedEndDate} / ${formattedEndTime}`;
 };
 
-export { filterEventsByCategory, filterEventsBySearch, formatDateTime };
+// REGISTRATION
+const isPasswordValid = (password: string) => {
+  return password.length >= 8;
+};
+
+const isUsernameValid = (username: string) => {
+  return username.length >= 8;
+};
+
+const isFullnameValid = (fullName: string) => {
+  return fullName.length >= 10
+};
+
+export {
+  filterEventsByCategory,
+  filterEventsBySearch,
+  formatDateTime,
+  isFullnameValid,
+  isUsernameValid,
+  isPasswordValid
+};

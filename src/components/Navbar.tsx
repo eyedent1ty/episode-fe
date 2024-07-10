@@ -11,7 +11,7 @@ const Navbar: FC = () => {
           <h1 className="font-bold text-2xl sm:text-3xl">episode.</h1>
         </Link>
         <Button asChild className="px-10 rounded-full">
-          <Link to="/login">Login</Link>
+          <Link to="/auth/sign-in">Login</Link>
         </Button>
       </div>
     </nav>

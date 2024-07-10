@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Juan Dela Cruz",
+      "username": "juan",
+      "password": "secret"
+    },
+    {
+      "fullName": "John Daniel M. Del Monte",
+      "username": "eyedent1ty",
+      "password": "Secret123",
+      "id": 2
+    },
+    {
+      "fullName": "John Daniel M. Del Monte",
+      "username": "eyedent1ty",
+      "password": "Secret123",
+      "id": 3
+    },
+    {
+      "fullName": "John Daniel M. Del Monte",
+      "username": "eyedent1ty",
+      "password": "secret123",
+      "id": 4
+    },
+    {
+      "fullName": "John Daniel M. Del Monte",
+      "username": "eyedent1ty",
+      "password": "secret123",
+      "id": 5
+    },
+    {
+      "fullName": "John Daniel M. Del Monte",
+      "username": "eyedent1ty",
+      "password": "secret123",
+      "id": 6
+    },
+    {
+      "fullName": "John Daniel M. Del Monte",
+      "username": "eyedent1ty",
+      "password": "secret123",
+      "id": 7
+    },
+    {
+      "fullName": "John Daniel M. Del Monte",
+      "username": "eyedent1ty",
+      "password": "secret123",
+      "id": 8
+    },
+    {
+      "fullName": "John Daniel M. Del Monte",
+      "username": "eyedent1ty",
+      "password": "secret123",
+      "id": 9
+    },
+    {
+      "fullName": "John Daniel M. Del Monte",
+      "username": "eyedent1ty",
+      "password": "secret123",
+      "id": 10
+    }
+  ]
+}
