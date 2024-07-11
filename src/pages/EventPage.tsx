@@ -35,7 +35,7 @@ export default function EventPage() {
                 <span className="text-primary font-bold">{event.username}</span>
               </p>
             </div>
-            <Button className="rounded-full">Get Ticket</Button>
+            <Button className="rounded-full">{parseInt(event.price.toString()) === 0 ? 'Get' : 'Buy'} Ticket</Button>
             <div className="flex flex-col items-center md:items-start">
               <p className="flex justify-center gap-2">
                 <CalendarClock size={24} />

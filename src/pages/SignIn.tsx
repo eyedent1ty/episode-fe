@@ -47,10 +47,12 @@ const SignInPage = () => {
       }));
     }
 
-    setTimeout(() => {
-      setLoading(false);
-      navigate('/');
-    }, 3000);
+    if (isUsernameValid(username) && isPasswordValid(password)) {
+      setTimeout(() => {
+        setLoading(false);
+        navigate('/');
+      }, 3000);
+    }
   }
 
   return (
