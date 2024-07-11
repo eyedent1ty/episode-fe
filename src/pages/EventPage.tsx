@@ -19,7 +19,7 @@ export default function EventPage() {
       <main className="pb-10 flex items-center md:h-[calc(100vh-72px)] md:justify-center">
         <article className="flex flex-col gap-5 md:flex-row md:items-center">
           <section className="flex justify-center items-center">
-            <img src={event.imageURL} height={450} width={300} />
+            <img src={event.imageURL} height={450} width={450} />
           </section>
           <section className="text-center space-y-3 md:text-left md:space-y-6">
             <h1 className="font-bold text-3xl">{event.title}</h1>
