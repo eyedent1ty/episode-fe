@@ -5,7 +5,7 @@ import Navbar from '../Navbar';
 export default function MainLayout() {
   return (
     <main>
-      <div className="px-3 sm:px-10 lg:px-16">
+      <div className="relative sm:static px-3 sm:px-10 lg:px-16">
         <header>
           <Navbar />
         </header>

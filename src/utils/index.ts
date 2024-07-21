@@ -17,7 +17,7 @@ const filterEventsBySearch = (events: Event[], search: string) => {
 };
 
 // dateTimeString -> Date ISOStringFormat
-const formatDate = (dateTimeString: string) => {
+const formatDate = (dateTimeString: string | Date) => {
   const date = new Date(dateTimeString);
 
   const optionsDate: Intl.DateTimeFormatOptions = {
@@ -79,6 +79,8 @@ const isFullnameValid = (fullName: string) => {
 export {
   filterEventsByCategory,
   filterEventsBySearch,
+  formatDate,
+  formatTime,
   formatDateTime,
   isFullnameValid,
   isUsernameValid,

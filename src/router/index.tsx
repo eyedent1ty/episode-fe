@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 import MainLayout from '../components/layouts/MainLayout';
 import Home from '../pages/Home';
 import EventPage from '../pages/EventPage';
+import CreateEventPage from '../pages/CreateEvent';
 
 import AuthLayout from '../components/layouts/AuthLayout';
 import SignInPage from '../pages/SignIn';
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: '/events/:id',
         element: <EventPage />
+      },
+      {
+        path: '/create-event',
+        element: <CreateEventPage />
       }
     ]
   },
