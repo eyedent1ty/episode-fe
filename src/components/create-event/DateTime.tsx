@@ -14,6 +14,7 @@ interface DateTimeProps {
   setTimeInput: (newTimeInput: string) => void;
   setTime: (newTime: string) => void;
   time: string;
+  endDate?: boolean;
 }
 
 const DateTime: FC<DateTimeProps> = ({
@@ -22,7 +23,8 @@ const DateTime: FC<DateTimeProps> = ({
   timeInput,
   setTimeInput,
   setTime,
-  time
+  time,
+  endDate = false
 }) => {
   const handleSelectDate = (selectedDate: Date | undefined) => {
     if (selectedDate === undefined) {
@@ -77,7 +79,7 @@ const DateTime: FC<DateTimeProps> = ({
               className="pl-10"
               type="text"
               placeholder="Start Date"
-              value={`Start Date: ${formatDate(date)}`}
+              value={`${!endDate ? 'Start' : 'End'} Date: ${formatDate(date)} / ${time}`}
               readOnly
             />
           </div>

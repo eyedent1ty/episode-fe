@@ -19,6 +19,10 @@ const CreateEventPage = () => {
   const [startTimeInput, setStartTimeInput] = useState('11:59 PM');
   const [startTime, setStartTime] = useState(startTimeInput);
 
+  const [endDate, setEndDate] = useState<Date>(new Date());
+  const [endTimeInput, setEndTimeInput] = useState('11:59 PM');
+  const [endTime, setEndTime] = useState(endTimeInput);
+
   return (
     <div className="mt-10">
       <header className="h-20 flex items-center">
@@ -62,8 +66,17 @@ const CreateEventPage = () => {
               setDate={setStartDate}
               timeInput={startTimeInput}
               setTimeInput={setStartTimeInput}
-              setTime={setStartTime}
               time={startTime}
+              setTime={setStartTime}
+            />
+            <DateTime
+              date={endDate}
+              setDate={setEndDate}
+              timeInput={endTimeInput}
+              setTimeInput={setEndTimeInput}
+              time={endTime}
+              setTime={setEndTime}
+              endDate
             />
           </div>
         </form>
