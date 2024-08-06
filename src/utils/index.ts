@@ -17,8 +17,8 @@ const filterEventsBySearch = (events: Event[], search: string) => {
 };
 
 // dateTimeString -> Date ISOStringFormat
-const formatDate = (dateTimeString: string | Date) => {
-  const date = new Date(dateTimeString);
+const formatDate = (d: string | Date) => {
+  const date = new Date(d);
 
   const optionsDate: Intl.DateTimeFormatOptions = {
     weekday: 'short',
@@ -34,8 +34,8 @@ const formatDate = (dateTimeString: string | Date) => {
   return formattedDate;
 };
 
-const formatTime = (dateTimeString: string) => {
-  const date = new Date(dateTimeString);
+const formatTime = (d: string | Date) => {
+  const date = new Date(d);
 
   const optionsTime: Intl.DateTimeFormatOptions = {
     hour: '2-digit',
@@ -50,12 +50,18 @@ const formatTime = (dateTimeString: string) => {
   return formattedTime;
 };
 
-const formatDateTime = (startDateString: string, endDateString: string) => {
-  const formattedStartDate = formatDate(startDateString);
-  const formattedStartTime = formatTime(startDateString);
+const formatDateAndTime = (d: string | Date) => {
+  const formattedDate = formatDate(d);
+  const formattedTime = formatTime(d);
+  return `${formattedDate} / ${formattedTime}`;
+};
 
-  const formattedEndDate = formatDate(endDateString);
-  const formattedEndTime = formatTime(endDateString);
+const formatStartEndDateTime = (startDate: string | Date, endDate: string | Date) => {
+  const formattedStartDate = formatDate(startDate);
+  const formattedStartTime = formatTime(startDate);
+
+  const formattedEndDate = formatDate(endDate);
+  const formattedEndTime = formatTime(endDate);
 
   if (formattedStartDate === formattedEndDate) {
     return `${formattedStartDate} / ${formattedStartTime} - ${formattedEndTime}`;
@@ -73,7 +79,26 @@ const isUsernameValid = (username: string) => {
 };
 
 const isFullnameValid = (fullName: string) => {
-  return fullName.length >= 10
+  return fullName.length >= 10;
+};
+
+/** timeString - 11:59 PM / 9:00 AM */
+const timeToMilliseconds = (date: Date, timeString: string) => {
+  const dateCopy = new Date(date);
+  dateCopy.setHours(0, 0, 0, 0);
+
+  const [time, meridiem] = timeString.split(' ');
+  let [hours, minutes] = time.split(':').map(Number);
+
+  if (meridiem.toUpperCase() === 'PM' && hours !== 12) {
+    hours += 12;
+  } else if (meridiem.toUpperCase() === 'AM' && hours === 12) {
+    hours = 0;
+  }
+
+  dateCopy.setHours(hours, minutes, 0, 0);
+
+  return dateCopy.getTime();
 };
 
 export {
@@ -81,8 +106,10 @@ export {
   filterEventsBySearch,
   formatDate,
   formatTime,
-  formatDateTime,
+  formatStartEndDateTime,
   isFullnameValid,
   isUsernameValid,
-  isPasswordValid
+  isPasswordValid,
+  timeToMilliseconds,
+  formatDateAndTime
 };

@@ -6,7 +6,7 @@ import { Button } from '../components/ui/button';
 
 import { useAppSelector } from '../store/hooks';
 import { selectEventById } from '../store/selector/event';
-import { formatDateTime } from '../utils';
+import { formatStartEndDateTime } from '../utils';
 
 export default function EventPage() {
   const params = useParams();
@@ -39,7 +39,7 @@ export default function EventPage() {
             <div className="flex flex-col items-center md:items-start">
               <p className="flex justify-center gap-2">
                 <CalendarClock size={24} />
-                {formatDateTime(event.dateTime, event.endDateTime)}
+                {formatStartEndDateTime(event.dateTime, event.endDateTime)}
               </p>
               <p className="flex justify-center items-center gap-2">
                 <MapPin size={24} />

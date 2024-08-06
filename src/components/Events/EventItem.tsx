@@ -13,7 +13,7 @@ import {
 } from '../ui/card';
 import { Badge } from '../ui/badge';
 
-import { formatDateTime } from '../../utils';
+import { formatStartEndDateTime } from '../../utils';
 
 interface EventItemProps {
   id: number;
@@ -53,7 +53,7 @@ const EventItem: FC<EventItemProps> = ({
               </Badge>
               <Badge>{category} </Badge>
             </div>
-            <CardDescription>{formatDateTime(dateTime, endDateTime)}</CardDescription>
+            <CardDescription>{formatStartEndDateTime(dateTime, endDateTime)}</CardDescription>
             <CardTitle>{title}</CardTitle>
           </CardContent>
           <CardFooter className="mt-auto">

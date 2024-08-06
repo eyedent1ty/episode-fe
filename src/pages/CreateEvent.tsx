@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DateTime from '../components/create-event/DateTime';
 import Separator from '../components/Separator';
 import { Input } from '../components/ui/input';
@@ -16,12 +16,28 @@ import { MapPin } from 'lucide-react';
 
 const CreateEventPage = () => {
   const [startDate, setStartDate] = useState<Date>(new Date());
-  const [startTimeInput, setStartTimeInput] = useState('11:59 PM');
-  const [startTime, setStartTime] = useState(startTimeInput);
-
   const [endDate, setEndDate] = useState<Date>(new Date());
-  const [endTimeInput, setEndTimeInput] = useState('11:59 PM');
-  const [endTime, setEndTime] = useState(endTimeInput);
+
+  const [startTimeInput, setStartTimeInput] = useState('12:00 AM');
+  const [endTimeInput, setEndTimeInput] = useState('12:00 AM');
+
+
+  useEffect(() => {
+    setStartDate((date) => {
+      const newStartDate = new Date(date);
+      newStartDate.setHours(24);
+      newStartDate.setMinutes(0);
+      return newStartDate;
+    });
+
+    setEndDate((date) => {
+      const newEndDate = new Date(date);
+      newEndDate.setHours(24);
+      newEndDate.setMinutes(0);
+      return newEndDate;
+    });
+  }, []);
+
 
   return (
     <div className="mt-10">
@@ -66,17 +82,14 @@ const CreateEventPage = () => {
               setDate={setStartDate}
               timeInput={startTimeInput}
               setTimeInput={setStartTimeInput}
-              time={startTime}
-              setTime={setStartTime}
             />
             <DateTime
               date={endDate}
               setDate={setEndDate}
               timeInput={endTimeInput}
               setTimeInput={setEndTimeInput}
-              time={endTime}
-              setTime={setEndTime}
               endDate
+              startDate={startDate}
             />
           </div>
         </form>

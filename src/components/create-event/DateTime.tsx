@@ -1,20 +1,19 @@
-import type { FC } from 'react';
+import { useRef, type FC } from 'react';
 import { Popover, PopoverTrigger, PopoverContent } from '../ui/popover';
 import { Calendar } from '../ui/calendar';
 import { Input } from '../ui/input';
 import { Separator } from '../ui/separator';
 import { Calendar as CalendarIcon } from 'lucide-react';
-
-import { formatDate } from '../../utils';
+import { Button } from '../ui/button';
+import { formatTime, formatDateAndTime } from '../../utils';
 
 interface DateTimeProps {
   date: Date;
-  setDate: (newDate: Date) => void;
+  setDate: (newDate: Date | ((prev: Date) => Date)) => void;
   timeInput: string;
   setTimeInput: (newTimeInput: string) => void;
-  setTime: (newTime: string) => void;
-  time: string;
   endDate?: boolean;
+  startDate: Date;
 }
 
 const DateTime: FC<DateTimeProps> = ({
@@ -22,15 +21,18 @@ const DateTime: FC<DateTimeProps> = ({
   setDate,
   timeInput,
   setTimeInput,
-  setTime,
-  time,
-  endDate = false
+  endDate = false,
+  startDate
 }) => {
+  const calendarElement = useRef<HTMLDivElement>(null);
+
   const handleSelectDate = (selectedDate: Date | undefined) => {
     if (selectedDate === undefined) {
       return;
     }
 
+    selectedDate.setHours(date.getHours());
+    selectedDate.setMinutes(date.getMinutes());
     setDate(selectedDate);
   };
 
@@ -45,7 +47,7 @@ const DateTime: FC<DateTimeProps> = ({
       hours = timeInput.slice(0, 1);
       minutes = timeInput.slice(2, 4);
     } else {
-      setTimeInput(time);
+      setTimeInput(formatTime(date));
       return;
     }
 
@@ -54,22 +56,38 @@ const DateTime: FC<DateTimeProps> = ({
       .toLowerCase();
 
     if (Number.isNaN(Number(hours)) || Number.isNaN(Number(minutes))) {
-      setTimeInput(time);
+      setTimeInput(formatTime(date));
       return;
     }
 
     if (meridiem !== 'am' && meridiem !== 'pm') {
-      setTimeInput(time);
+      setTimeInput(formatTime(date));
       return;
     }
 
-    setTime(`${hours}:${minutes} ${meridiem.toUpperCase()}`);
+
+    if (meridiem === 'am' && Number(hours) === 12) {
+      setDate((prev) => {
+        const newDate = new Date(prev);
+        newDate.setHours(0);
+        newDate.setMinutes(Number(minutes));
+        return newDate;
+      });
+      return;
+    }
+
+    setDate((prev) => {
+      const newDate = new Date(prev);
+      newDate.setHours(Number(hours));
+      newDate.setMinutes(Number(minutes));
+      return newDate;
+    });
   };
 
   return (
-    <Popover>
+    <Popover onOpenChange={handleBlurTimeInput}>
       <PopoverTrigger asChild>
-        <div>
+        <div ref={calendarElement}>
           <div className="relative">
             <CalendarIcon
               className="text-primary absolute top-1/2 left-[10px] -translate-y-1/2"
@@ -79,14 +97,14 @@ const DateTime: FC<DateTimeProps> = ({
               className="pl-10"
               type="text"
               placeholder="Start Date"
-              value={`${!endDate ? 'Start' : 'End'} Date: ${formatDate(date)} / ${time}`}
+              value={`${!endDate ? 'Start' : 'End'} Date: ${formatDateAndTime(date.toISOString())}`}
               readOnly
             />
           </div>
         </div>
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0" align="start">
-        <div>
+        <div className="flex flex-col">
           <Calendar
             mode="single"
             selected={date}
@@ -99,8 +117,13 @@ const DateTime: FC<DateTimeProps> = ({
             type="text"
             value={timeInput}
             onChange={(e) => setTimeInput(e.target.value)}
-            onBlur={handleBlurTimeInput}
           />
+          <Button
+            className="rounded-none"
+            onClick={() => calendarElement.current?.click()}
+          >
+            Set Date/Time
+          </Button>
         </div>
       </PopoverContent>
     </Popover>
